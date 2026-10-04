@@ -1,0 +1,208 @@
+.about-hero {
+  height:400px;
+  background:linear-gradient(90deg,rgba(20,20,27,.76),rgba(20,20,27,.2)),url("../assets/workshop.png") center/cover;
+  display:flex;
+  align-items:center;
+  color:#fff;
+}
+
+.about-hero h2 {
+  max-width:600px;
+  font-size:44px;
+  font-weight:900;
+}
+
+.story-section {
+  background:#fff;
+  padding:80px 0;
+}
+
+.story-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 500px;
+  gap:60px;
+  align-items:center;
+}
+
+.story-layout h2,
+.contact-info h2 {
+  font-size:28px;
+  font-weight:800;
+  margin:0 0 20px;
+}
+
+.story-layout p {
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 20px;
+}
+
+.story-image {
+  display:block;
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.values-section {
+  padding:80px 0;
+}
+
+.value-card {
+  height:100%;
+  min-height:220px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  padding:32px;
+}
+
+.value-icon,
+.info-icon {
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(240,140,30,.08);
+}
+
+.value-icon {
+  width:50px;
+  height:50px;
+  margin-bottom:16px;
+}
+
+.value-icon img {
+  width:24px;
+  height:24px;
+}
+
+.value-card h3 {
+  font-size:20px;
+  font-weight:800;
+  margin:0 0 12px;
+}
+
+.value-card p {
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
+  margin:0;
+}
+
+.contact-banner {
+  display:block;
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+.contact-section {
+  background:#fff;
+  padding:80px 0;
+}
+
+.contact-info>p {
+  max-width:460px;
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:32px;
+}
+
+.contact-info a {
+  color:var(--orange);
+}
+
+.info-item {
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:32px;
+}
+
+.info-icon {
+  width:44px;
+  height:44px;
+  flex:none;
+}
+
+.info-icon img {
+  width:20px;
+  height:20px;
+}
+
+.info-item h3 {
+  font-size:16px;
+  font-weight:700;
+  margin:0 0 4px;
+}
+
+.info-item p {
+  font-size:14px;
+  color:var(--muted);
+  margin:0;
+}
+
+.contact-form {
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:32px;
+}
+
+.contact-form h2 {
+  font-size:20px;
+  font-weight:800;
+  margin:0 0 24px;
+}
+
+.contact-form label {
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+.contact-form .form-control {
+  min-height:44px;
+  border-color:var(--border);
+  margin-bottom:20px;
+}
+
+.contact-form textarea.form-control {
+  height:120px;
+}
+
+.contact-form .orange-button {
+  width:100%;
+  font-size:15px;
+}
+
+@media(max-width:1100px) {
+  .story-layout {
+    grid-template-columns:1fr 40%;
+  }
+}
+
+@media(max-width:767px) {
+  .story-section,
+  .values-section,
+  .contact-section {
+    padding:55px 0;
+  }
+  .about-hero {
+    height:320px;
+  }
+  .about-hero h2 {
+    font-size:36px;
+  }
+  .story-layout {
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:480px) {
+  .contact-form {
+    padding:22px;
+  }
+}
