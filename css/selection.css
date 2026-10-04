@@ -1,0 +1,27 @@
+.product-select {
+  position:absolute;
+  width:1px;
+  height:1px;
+  opacity:0;
+}
+
+.product-select:focus-visible+.add-cart {
+  outline:3px solid var(--orange);
+  outline-offset:3px;
+}
+
+.product-select:checked+.add-cart {
+  background:var(--orange);
+}
+
+.product-select:checked+.add-cart .add-text {
+  display:none;
+}
+
+.remove-text {
+  display:none;
+}
+
+.product-select:checked+.add-cart .remove-text {
+  display:inline;
+}

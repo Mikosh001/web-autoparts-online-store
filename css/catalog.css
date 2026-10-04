@@ -1,0 +1,207 @@
+.product-meta {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:600;
+}
+
+.rating {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  color:var(--text);
+  font-size:12px;
+  font-weight:700;
+}
+
+.rating img {
+  width:12px;
+  height:12px;
+}
+
+.product-card h2,
+.product-card h3 {
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.price {
+  font-family:Outfit,Arial,sans-serif;
+  color:var(--orange);
+  font-size:20px;
+  font-weight:800;
+  margin:0;
+}
+
+.title-flex {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.products-main {
+  padding:60px 0;
+  background:var(--paper);
+}
+
+.catalog {
+  display:grid;
+  grid-template-columns:280px minmax(0,1fr);
+  gap:40px;
+  align-items:start;
+}
+
+.filters {
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  padding:24px;
+}
+
+.filters fieldset {
+  padding:0;
+  margin:0;
+  border:0;
+}
+
+.filters legend {
+  font-family:Outfit,Arial,sans-serif;
+  font-size:16px;
+  font-weight:700;
+  margin:0 0 16px;
+}
+
+.filter-option {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  margin-bottom:16px;
+  cursor:pointer;
+}
+
+.filter-option input {
+  appearance:none;
+  flex:none;
+  width:18px;
+  height:18px;
+  margin:0;
+  border:2px solid var(--border);
+  border-radius:3px;
+  cursor:pointer;
+}
+
+.filter-option input:checked {
+  background:var(--orange);
+  border-color:var(--orange);
+}
+
+.filter-option input:checked::after {
+  content:"✓";
+  display:block;
+  color:#fff;
+  font-size:12px;
+  line-height:14px;
+  text-align:center;
+}
+
+.filter-option input:focus-visible {
+  outline:3px solid var(--orange);
+  outline-offset:2px;
+}
+
+.filters hr {
+  border-color:var(--border);
+  opacity:1;
+  margin:24px 0;
+}
+
+.catalog-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:760px;
+  gap:20px;
+}
+
+.products-main:has(#category-engine:checked) .product-card:not(.filter-engine),
+.products-main:has(#category-brakes:checked) .product-card:not(.filter-brakes),
+.products-main:has(#category-wheels:checked) .product-card:not(.filter-wheels),
+.products-main:has(#category-suspension:checked) .product-card:not(.filter-suspension),
+.products-main:has(#category-electronics:checked) .product-card:not(.filter-electronics),
+.products-main:has(#category-body:checked) .product-card:not(.filter-body),
+.products-main:has(#category-exhaust:checked) .product-card:not(.filter-exhaust) {
+  display:none;
+}
+
+.products-main:has(#price-low:checked) .product-card:not(.price-low),
+.products-main:has(#price-mid:checked) .product-card:not(.price-mid),
+.products-main:has(#price-high:checked) .product-card:not(.price-high) {
+  display:none;
+}
+
+@media(max-width:1100px) {
+  .catalog-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    max-width:500px;
+  }
+}
+
+@media(max-width:767px) {
+  .title-flex {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .catalog {
+    grid-template-columns:1fr;
+  }
+  .catalog-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    max-width:none;
+  }
+  .filters {
+    max-width:none;
+  }
+}
+
+@media(max-width:480px) {
+  .catalog-grid {
+    grid-template-columns:1fr;
+  }
+}
+
+
+.catalog-content {
+  min-width:0;
+}
+
+.catalog-empty {
+  display:none;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  color:var(--muted);
+}
+
+.products-main:has(#category-engine:checked, #category-body:checked):has(#price-mid:checked, #price-high:checked) .catalog-empty,
+.products-main:has(#category-brakes:checked, #category-electronics:checked, #category-wheels:checked):has(#price-low:checked, #price-high:checked) .catalog-empty,
+.products-main:has(#category-suspension:checked, #category-exhaust:checked):has(#price-low:checked, #price-mid:checked) .catalog-empty {
+  display:block;
+}
+
+@media(min-width:768px) and (max-width:900px) {
+  .catalog {
+    grid-template-columns:220px minmax(0,1fr);
+    gap:24px;
+  }
+  .catalog-grid {
+    grid-template-columns:1fr;
+  }
+}
