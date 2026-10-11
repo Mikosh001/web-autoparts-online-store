@@ -1,3 +1,10 @@
+/*
+ * Shared stylesheet entry point for the team's existing CSS work.
+ * Meirbek Berdibek (@Mikosh001): Home, Categories, and navigation.
+ * Beimzhan Otegen: Products, filters, and cart.
+ * Aslan Sabyr (@asikxz008): shared base/footer and About/Contact styles.
+ * Keep base tokens first and page styles after them; preserve import order.
+ */
 @import url("css/base-footer.css");
 @import url("css/home.css");
 @import url("css/categories.css");
