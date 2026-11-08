@@ -1,8 +1,8 @@
 /*
  * Shared stylesheet entry point for the team's existing CSS work.
- * Meirbek Berdibek (@Mikosh001): Home, Categories, and navigation.
- * Beimzhan Otegen: Products, filters, and cart.
- * Aslan Sabyr (@asikxz008): shared base/footer and About/Contact styles.
+ * Meirbek Berdibek (@Mikosh001): Home, Categories, About, and jQuery UI.
+ * Beimzhan Otegen: Products, cart, shared state/theme, and interactive styles.
+ * Aslan Sabyr (@asikxz008): Login, Contact, base/footer, and style imports.
  * Keep base tokens first and page styles after them; preserve import order.
  */
 @import url("css/base-footer.css");
@@ -12,3 +12,7 @@
 @import url("css/selection.css");
 @import url("css/cart.css");
 @import url("css/about-contact.css");
+@import url("css/endterm-common.css");
+@import url("css/endterm-home.css");
+@import url("css/endterm-catalog.css");
+@import url("css/account.css");
