@@ -2,6 +2,12 @@
 
 Endterm continuation of our WEB Technologies midterm. The original five responsive pages, group, Bootstrap styles, orange and charcoal design, product images and navigation are retained. Two new pages provide a dedicated cart and demo account login/registration. JavaScript and jQuery power the catalog, favorites, forms and FAQ.
 
+## Live website
+
+[Open the published AutoParts Store](https://mikosh001.github.io/web-autoparts-online-store/).
+
+GitHub Pages publishes the endterm project from `main` and the repository root. Use the HTTPS site to try the catalog, cart, demo accounts and inquiry forms.
+
 ## Pages
 
 - `index.html` — quick search, dynamic featured products, favorites, cart actions and part details.
@@ -16,7 +22,7 @@ Endterm continuation of our WEB Technologies midterm. The original five responsi
 ## Team
 
 - Meirbek Berdibek (@Mikosh001) — Home, Categories, About, catalog data, jQuery FAQ/details and related assets. Main code: `index.html`, `categories.html`, `about.html`, `js/data.js`, `js/home.js`, `js/categories.js`, `js/jquery-ui.js`. **15 files total.**
-- Beimzhan Otegen — Products, Cart, shared browser state/theme/card template, catalog filters, delivery/discount calculations, tests and preview server. Main code: `products.html`, `cart.html`, `js/catalog.js`, `js/cart.js`, `js/common.js`. **15 files total.**
+- Beimzhan Otegen (@PactusOs) — Products, Cart, shared browser state/theme/card template, catalog filters, delivery/discount calculations, tests and preview server. Main code: `products.html`, `cart.html`, `js/catalog.js`, `js/cart.js`, `js/common.js`. **15 files total.**
 - Aslan Sabyr (@asikxz008) — Login/registration, Contact, form validation, account/base/footer styles, font configuration and team documentation. Main code: `login.html`, `contact.html`, `js/auth.js`, `js/forms.js`, `css/account.css`, `css/base-footer.css`. **15 files total.**
 
 All 45 changed/new files are assigned exactly once, 15 to each member. Shared styles, dependencies and documentation are included in the split; copying all three parts preserves the complete working project. Exact paths are listed in [the upload guide](docs/UPLOAD_RU.md).
@@ -74,12 +80,11 @@ See [all endterm changes in Russian](docs/ENDTERM_CHANGES_RU.md), [requirement m
 
 ## Publish with GitHub Pages
 
-Publication is the final team step. Upload the three parts sequentially to a shared `endterm` branch in the existing repository, then merge it into `main` while preserving the three commits. Follow [the step-by-step upload guide](docs/UPLOAD_RU.md). This package has not changed any GitHub account or repository.
+The three team parts were uploaded to `endterm` from the members' GitHub accounts and merged into `main` through [pull request #3](https://github.com/Mikosh001/web-autoparts-online-store/pull/3). A merge commit preserves all 14 contribution commits and their authors.
 
-1. Keep all seven HTML files, `css`, `js`, `assets`, `vendor`, `tools`, `tests` and `docs` at the repository root. Keep the original assets and Bootstrap files.
-2. Open Settings → Pages. Under Build and deployment, choose Deploy from a branch, select `main` and `/ (root)`, then Save.
-3. Wait for the deployment and open the URL shown by GitHub. Verify all seven pages, login and forms there, then submit that working link.
-4. The expected project URL is `https://mikosh001.github.io/web-autoparts-online-store/`. This is an expected URL, not a claim that deployment is active. Add the verified address to README after publication.
+The live site is [https://mikosh001.github.io/web-autoparts-online-store/](https://mikosh001.github.io/web-autoparts-online-store/). GitHub Pages uses **Deploy from a branch**, **main**, **/ (root)**. Future commits to `main` trigger a new Pages build and deployment.
+
+Keep all seven HTML files and the `css`, `js`, `assets`, `vendor`, `tools`, `tests` and `docs` folders at the repository root. After an update, wait for the Pages workflow to succeed and check the published pages, login, cart and forms. The earlier [upload guide](docs/UPLOAD_RU.md) records the team's file split and upload procedure.
 
 Official guide: [Publishing from a branch](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
