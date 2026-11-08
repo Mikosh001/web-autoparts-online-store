@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart | AutoParts Store</title>
+  <meta name="description" content="Review quantities, save parts for later, apply a promo code and prepare an order inquiry.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/jquery-3.7.1.min.js" defer></script><script src="js/data.js" defer></script><script src="js/common.js" defer></script><script src="js/auth.js" defer></script><script src="js/cart.js" defer></script><script src="js/forms.js" defer></script><script src="js/jquery-ui.js" defer></script>
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+  <header class="site-header">
+  <div class="site-container header-inner">
+    <a class="brand" href="index.html" aria-label="AutoParts Store home"><span class="brand-mark" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">HOME</a><a href="products.html">PRODUCTS</a><a href="categories.html">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
+    <a class="account-link" id="account-link" href="login.html">Log in</a><a class="cart-label" href="cart.html"><img src="assets/cart.svg" alt=""> CART <span class="cart-count" data-cart-count>0</span></a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button><details class="mobile-nav"><summary aria-label="Open navigation">☰</summary><nav aria-label="Mobile navigation"><a href="index.html">HOME</a><a href="products.html">PRODUCTS</a><a href="categories.html">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav></details>
+  </div>
+</header>
+  <noscript><p class="site-container py-3">Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.</p></noscript>
+  <main id="main">
+<section class="title-bar"><div class="site-container title-flex"><div><h1>YOUR CART</h1><p>Home / Cart</p></div><a class="back-to-catalog" href="products.html">← Continue shopping</a></div></section>
+<section class="cart-page"><div class="site-container"><div class="cart-page-heading"><div><p class="eyebrow">REVIEW YOUR PARTS</p><h2 id="cart-heading" tabindex="-1">Ready for your next repair.</h2><p id="cart-item-count" class="section-note" role="status">0 items</p></div><div class="cart-heading-actions"><button id="undo-remove" class="btn btn-outline-secondary" type="button" hidden>Undo removal</button><button id="clear-cart" class="text-button" type="button">Clear cart</button></div></div>
+<div id="empty-cart" class="empty-state"><h2>Your next part is waiting.</h2><p>Explore the catalog and add the parts you need.</p><a class="btn orange-button" href="products.html">BROWSE PARTS</a></div>
+<div id="cart-filled" class="cart-layout"><div><section class="cart-panel" aria-label="Cart products"><ul class="cart-items" id="cart-items"></ul></section>
+<p class="section-note cart-help">Save for later moves a part into Favorites. Undo restores your most recent removal or cleared cart.</p>
+<section class="cart-panel" id="checkout-section"><div class="section-top"><h2>ORDER INQUIRY</h2><a id="checkout-account-link" href="login.html">Log in to prefill your details →</a></div><form id="order-form" class="checkout-fields cart-checkout" data-validate novalidate><h3>PREPARE AN ORDER INQUIRY</h3><p>Check your details, then download an inquiry to email to our team. Fields marked * are required.</p><p class="form-summary" role="alert" tabindex="-1" hidden></p><div class="row g-3">
+<div class="col-12"><div class="form-field"><label for="order-name">Full name *</label><input class="form-control" id="order-name" name="order-name" data-validate-field data-label="Full name" aria-describedby="order-name-error" required data-min="2" type="text" placeholder="Your full name" maxlength="100" autocomplete="name"><p class="field-error" id="order-name-error"></p></div></div><div class="col-12"><div class="form-field"><label for="order-email">Email address *</label><input class="form-control" id="order-email" name="order-email" data-validate-field data-label="Email address" aria-describedby="order-email-error" required type="email" placeholder="you@example.com" maxlength="100" autocomplete="email"><p class="field-error" id="order-email-error"></p></div></div><div class="col-12"><div class="form-field"><label for="order-vehicle">Vehicle *</label><input class="form-control" id="order-vehicle" name="order-vehicle" data-validate-field data-label="Vehicle" aria-describedby="order-vehicle-error" required data-min="5" type="text" placeholder="Year, make and model" maxlength="100"><p class="field-error" id="order-vehicle-error"></p></div></div><div class="col-12"><div class="form-field"><label for="order-message">Message (optional)</label><textarea class="form-control" id="order-message" name="order-message" data-validate-field data-label="Message" aria-describedby="order-message-error" placeholder="Fitment or delivery questions" rows="4" maxlength="1000"></textarea><p class="field-error" id="order-message-error"></p></div></div></div><button class="btn orange-button mt-3" type="submit">PREPARE INQUIRY</button><div class="form-result" role="status" tabindex="-1" hidden></div></form></section></div>
+<aside class="order-summary cart-panel" aria-labelledby="summary-heading"><p class="eyebrow">THE DETAILS</p><h2 id="summary-heading">Order summary</h2>
+<dl class="quote-lines"><div><dt>Products</dt><dd id="cart-subtotal">$0.00</dd></div><div id="discount-row" hidden><dt>Discount</dt><dd id="cart-discount">$0.00</dd></div><div><dt>Delivery estimate</dt><dd id="cart-shipping">$0.00</dd></div><div class="quote-total"><dt>Estimated total</dt><dd id="cart-total" aria-live="polite">$0.00</dd></div></dl>
+<label for="delivery-method">Delivery option</label><select class="form-select" id="delivery-method"><option value="standard">Standard · $15, free from $300</option><option value="express">Express · $30</option><option value="pickup">Store pickup · free</option></select>
+<p class="shipping-hint" id="shipping-hint"></p><progress id="shipping-progress" max="30000" value="0" aria-label="Progress toward free standard delivery"></progress>
+<form id="coupon-form" novalidate><label for="coupon-code">Promo code</label><div class="coupon-entry"><input class="form-control" type="text" id="coupon-code" maxlength="30" aria-describedby="coupon-code-error coupon-status" autocomplete="off"><button type="submit" class="btn btn-outline-secondary">Apply</button></div><p class="field-error" id="coupon-code-error"></p><p class="section-note" id="coupon-status" role="status"></p><button id="remove-coupon" class="text-button" type="button" hidden>Remove promo code</button></form>
+<a class="btn orange-button summary-checkout" href="#checkout-section">PREPARE INQUIRY →</a><p class="section-note summary-note">USD. Delivery and discounts are demo estimates. Confirm availability and final price with the store. No payment is taken.</p>
+</aside></div></div></section></main>
+  <footer class="site-footer">
+  <div class="site-container">
+    <div class="footer-columns">
+      <div class="footer-brand"><div class="brand"><span class="brand-mark small" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></div><p>Automotive spare parts and accessories for drivers and mechanics.</p></div>
+      <div><h2>POPULAR CATEGORIES</h2><ul><li><a href="categories.html#engine">Engine Parts</a></li><li><a href="categories.html#brakes">Brake Systems</a></li><li><a href="categories.html#wheels">Wheels & Tires</a></li><li><a href="categories.html#suspension">Suspension</a></li><li><a href="categories.html#electronics">Electronics</a></li><li><a href="categories.html#body">Body & Exterior</a></li><li><a href="categories.html#exhaust">Exhaust Systems</a></li></ul></div>
+      <div><h2>CUSTOMER SERVICE</h2><ul><li><a href="contact.html#contact-form">Contact Us</a></li><li><a href="cart.html">Order Inquiry</a></li><li><a href="about.html">About Us</a></li></ul></div>
+      <div><h2>SUPPORT HELPLINE</h2><p><a href="tel:+77757478601">+77757478601</a></p><p><a href="mailto:supportautopartsstore@gmail.com">supportautopartsstore@gmail.com</a></p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 AutoParts Store. All rights reserved.</p><div class="socials"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook"><img src="assets/facebook.svg" alt=""></a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram"><img src="assets/instagram.svg" alt=""></a></div></div>
+  </div>
+</footer>
+  <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

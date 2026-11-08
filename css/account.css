@@ -1,0 +1,37 @@
+.eyebrow { font-size:11px; font-weight:800; letter-spacing:.12em; color:var(--muted); margin-bottom:10px; }
+.account-link { color:#fff; border:1px solid #63636f; border-radius:5px; padding:8px 12px; font-size:12px; font-weight:600; white-space:nowrap; }
+.account-link:hover { color:var(--orange); border-color:var(--orange); }
+.account-page { padding:64px 0 88px; }
+.account-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px); gap:80px; align-items:start; }
+.account-intro { padding-top:32px; }
+.account-intro h2 { font-size:clamp(32px,4vw,48px); font-weight:900; line-height:1.15; margin-bottom:24px; }
+.account-intro > p { max-width:460px; color:var(--muted); line-height:1.8; }
+.account-intro ul { list-style:none; margin:32px 0; padding:0; }
+.account-intro li { border-bottom:1px solid var(--border); max-width:420px; padding:14px 0; font-size:14px; }
+.account-intro li::before { content:"✓"; color:#ad5500; padding-right:12px; font-weight:700; }
+.account-card { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--orange); border-radius:10px; padding:32px; }
+.account-card h2 { font-size:28px; font-weight:800; margin-bottom:12px; overflow-wrap:anywhere; }
+.account-card .orange-button { width:100%; margin-top:12px; }
+.auth-tabs { display:flex; gap:24px; border-bottom:1px solid var(--border); margin-bottom:28px; }
+.auth-tabs button { background:none; border:0; border-bottom:3px solid transparent; padding:0 0 14px; font-size:14px; font-weight:700; color:var(--muted); }
+.auth-tabs button[aria-selected="true"] { color:var(--text); border-bottom-color:var(--orange); }
+.password-toggle { font-size:11px; margin-top:3px; color:var(--muted); }
+.demo-login { border-top:1px solid var(--border); padding-top:22px; margin-top:24px; font-size:12px; color:var(--muted); }
+.demo-login p { line-height:1.8; }
+.demo-login button { font-size:12px; width:100%; }
+#profile-email { overflow-wrap:anywhere; color:var(--muted); }
+#logout-button { display:block; margin:16px auto 0; }
+@media (min-width:1200px) { .header-inner { gap:18px; } .desktop-nav { gap:22px; } .desktop-nav a { font-size:13px; } .site-header .brand { font-size:22px; } }
+@media (max-width:1199px) {
+  .site-header { height:auto; min-height:72px; }
+  .header-inner { height:auto; min-height:69px; padding-block:12px; }
+  .desktop-nav { display:none; }
+  .mobile-nav { display:block; order:5; }
+  .mobile-nav summary { list-style:none; cursor:pointer; color:#fff; border:1px solid #555; border-radius:6px; padding:5px 10px; font-size:22px; }
+  .mobile-nav summary::-webkit-details-marker { display:none; }
+  .mobile-nav nav { position:absolute; z-index:20; top:100%; right:0; width:220px; background:var(--dark); padding:12px 20px; display:flex; flex-direction:column; box-shadow:0 10px 25px #0003; }
+  .mobile-nav a { padding:10px 0; }
+}
+@media (max-width:991px) { .account-layout { gap:40px; grid-template-columns:1fr 1fr; } .account-card { padding:24px; } }
+@media (max-width:767px) { .account-page { padding:36px 0 56px; } .account-layout { grid-template-columns:1fr; gap:28px; } .account-intro { padding-top:0; } .account-intro ul { margin:20px 0; } .account-intro h2 { font-size:32px; } }
+@media (max-width:480px) { .account-link { padding:5px 7px; font-size:11px; } .header-inner { justify-content:flex-start; } .site-header .brand { margin-right:auto; } .account-link { order:2; } .cart-label { order:3; margin-left:0; } .theme-toggle { order:4; } .mobile-nav { order:5; margin-left:auto; } }
