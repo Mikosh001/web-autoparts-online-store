@@ -1,0 +1,70 @@
+.catalog-grid { max-width:none; }
+.catalog-toolbar { display:grid; grid-template-columns:minmax(0,1fr) minmax(150px,.7fr); gap:16px; }
+.catalog-toolbar label { display:block; margin-bottom:7px; font-size:13px; font-weight:700; }
+.catalog-toolbar .favorites-filter { grid-column:1/-1; display:flex; gap:8px; align-items:center; font-weight:500; margin:0; }
+.favorites-filter input { width:17px; height:17px; accent-color:var(--orange); }
+.result-count { margin:20px 0; }
+.cart-summary .section-top { margin-bottom:12px; }
+.cart-row { display:flex; align-items:center; flex-wrap:wrap; gap:16px; padding:18px 0; border-bottom:1px solid var(--border); font-size:14px; }
+.cart-product { display:flex; align-items:center; gap:12px; flex:1; min-width:180px; }
+.cart-product img { width:54px; height:54px; object-fit:contain; background:white; border-radius:4px; }
+.cart-product small { display:block; color:var(--muted); margin-top:3px; }
+.cart-quantity { display:flex; align-items:center; gap:8px; }
+.cart-quantity input { width:75px; padding:7px; }
+.cart-total { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0 8px; }
+.cart-total > strong { font-size:24px; }
+.cart-summary .checkout-fields p { color:var(--muted); }
+.cart-summary .checkout-fields .field-error, .cart-summary .checkout-fields .form-summary { color:var(--error); }
+.cart-summary .checkout-fields .form-result p { color:var(--success); }
+.comparison { margin-top:40px; }
+.catalog-cart-link { margin:24px 0; }
+.catalog-cart-link a, .back-to-catalog, .cart-product a { color:var(--text); font-weight:700; }
+.cart-page { padding:48px 0 80px; }
+.cart-page-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:28px; }
+.cart-page-heading h2 { font-size:32px; font-weight:800; margin-bottom:8px; }
+.cart-page-heading p { margin-bottom:0; }
+.cart-heading-actions { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.cart-layout { display:grid; grid-template-columns:minmax(0,1fr) 350px; gap:28px; align-items:start; }
+.cart-panel { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:28px; }
+.cart-panel h2 { font-size:24px; font-weight:800; }
+.cart-row { display:grid; grid-template-columns:minmax(0,1fr) auto auto; column-gap:20px; }
+.cart-row:first-child { padding-top:0; }
+.cart-row:last-child { border-bottom:0; padding-bottom:0; }
+.cart-product { min-width:0; }
+.cart-product img { width:74px; height:74px; }
+.cart-product a { font-size:15px; overflow-wrap:anywhere; }
+.cart-product small { font-size:11px; }
+.cart-quantity { gap:0; border:1px solid var(--border); border-radius:5px; overflow:hidden; }
+.cart-quantity input { width:52px; border:0; border-radius:0; text-align:center; padding:8px 2px; appearance:textfield; }
+.cart-quantity input::-webkit-inner-spin-button, .cart-quantity input::-webkit-outer-spin-button { appearance:none; margin:0; }
+.cart-quantity button { width:30px; min-height:36px; border:0; background:var(--soft); color:var(--text); }
+.cart-row-actions { display:flex; gap:20px; grid-column:1/-1; padding-left:86px; }
+.cart-row-actions button { font-size:12px; }
+.cart-help { margin:14px 0 28px; }
+.cart-checkout { margin:0; padding:0; border:0; }
+.cart-checkout h3 { font-size:16px; }
+.order-summary { position:sticky; top:20px; border-top:3px solid var(--orange); }
+.quote-lines { margin:24px 0; }
+.quote-lines > div { display:flex; justify-content:space-between; gap:16px; margin-bottom:14px; font-size:14px; }
+.quote-lines dt { font-weight:400; color:var(--muted); }
+.quote-lines dd { margin:0; font-weight:600; white-space:nowrap; }
+.quote-lines .quote-total { border-top:1px solid var(--border); margin-top:20px; padding-top:20px; font-size:20px; }
+.quote-total dt { color:var(--text); font-weight:700; }
+.order-summary label { display:block; font-size:13px; font-weight:700; margin-bottom:8px; }
+.order-summary .form-select { font-size:13px; }
+.shipping-hint { margin:16px 0 8px; color:var(--muted); font-size:12px; line-height:1.6; }
+#shipping-progress { width:100%; height:7px; accent-color:var(--orange); display:block; margin-bottom:24px; }
+#coupon-form { border-top:1px solid var(--border); padding-top:24px; }
+.coupon-entry { display:flex; gap:8px; }
+.coupon-entry input { min-width:0; }
+.coupon-entry button { font-size:13px; }
+#coupon-status { margin:8px 0 0; font-size:12px; }
+.summary-checkout { width:100%; font-size:13px; padding:14px 10px; margin-top:24px; }
+.summary-note { font-size:11px; margin:12px 0 0; }
+@media (max-width:1100px) { .cart-layout { grid-template-columns:minmax(0,1fr) 310px; gap:20px; } .cart-panel { padding:22px; } .cart-row { grid-template-columns:minmax(0,1fr) auto; } .cart-row > strong { grid-column:2; } .cart-row-actions { grid-column:1/-1; padding-left:0; } }
+@media (max-width:767px) { .cart-layout { display:flex; flex-direction:column; } .cart-layout > div, .order-summary { width:100%; } .order-summary { position:static; order:-1; } .cart-page-heading { align-items:flex-start; flex-direction:column; } .cart-page-heading h2 { font-size:27px; } }
+@media (max-width:480px) { .cart-row { grid-template-columns:minmax(0,1fr) auto; gap:14px; } .cart-row .cart-product { grid-column:1/-1; } .cart-row .cart-quantity { grid-column:1; width:max-content; } .cart-row > strong { margin:0; justify-self:end; } .cart-panel { padding:20px; } .cart-row-actions { padding-left:0; } }
+@media (max-width:1100px) { .catalog { grid-template-columns:230px minmax(0,1fr); gap:28px; } .catalog-grid { max-width:none; } }
+@media (min-width:768px) and (max-width:900px) { .catalog { grid-template-columns:200px minmax(0,1fr); } }
+@media (max-width:767px) { .catalog { grid-template-columns:1fr; gap:24px; } #filter-form fieldset { display:flex; flex-wrap:wrap; column-gap:18px; } #filter-form legend { float:none; width:100%; } .filter-option { margin-bottom:10px; } .filters hr { margin:16px 0; } }
+@media (max-width:480px) { .catalog-toolbar { grid-template-columns:1fr; } .cart-summary { padding:20px; } .cart-row { gap:12px; } .cart-product { flex-basis:100%; } .cart-row > strong { margin-left:auto; } }
