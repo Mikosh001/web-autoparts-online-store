@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Part Requests | AutoParts Store
+    </title>
+    <meta name="description" content="Create, update and track saved requests for real catalog parts in this browser.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vendor/jquery-3.7.1.min.js" defer>
+    </script>
+    <script src="js/product.js" defer>
+    </script>
+    <script src="js/data.js" defer>
+    </script>
+    <script src="js/common.js" defer>
+    </script>
+    <script src="js/storage.js" defer>
+    </script>
+    <script src="js/auth.js" defer>
+    </script>
+    <script src="js/cart.js" defer>
+    </script>
+    <script src="js/requests-store.js" defer>
+    </script>
+    <script src="js/requests.js" defer>
+    </script>
+    <script src="js/jquery-ui.js" defer>
+    </script>
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <div class="site-container header-inner">
+        <a class="brand" href="index.html" aria-label="AutoParts Store home">
+          <span class="brand-mark" aria-hidden="true">
+          </span>
+          <span>
+            AUTOPARTS
+            <strong>
+              STORE
+            </strong>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="index.html">
+            HOME
+          </a>
+          <a href="products.html">
+            PRODUCTS
+          </a>
+          <a href="categories.html">
+            CATEGORIES
+          </a>
+          <a href="about.html">
+            ABOUT
+          </a>
+          <a href="requests.html" aria-current="page">
+            REQUESTS
+          </a>
+          <a href="contact.html">
+            CONTACT
+          </a>
+        </nav>
+        <a class="account-link" id="account-link" href="login.html">
+          Log in
+        </a>
+        <a class="cart-label" href="cart.html">
+          <img src="assets/cart.svg" alt="">
+          CART
+          <span class="cart-count" data-cart-count>
+            0
+          </span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          Dark mode
+        </button>
+        <details class="mobile-nav">
+          <summary aria-label="Open navigation">
+            ☰
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="index.html">
+              HOME
+            </a>
+            <a href="products.html">
+              PRODUCTS
+            </a>
+            <a href="categories.html">
+              CATEGORIES
+            </a>
+            <a href="about.html">
+              ABOUT
+            </a>
+            <a href="requests.html" aria-current="page">
+              REQUESTS
+            </a>
+            <a href="contact.html">
+              CONTACT
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <noscript>
+      <p class="site-container py-3">
+        Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.
+      </p>
+    </noscript>
+    <main id="main">
+      <section class="title-bar">
+        <div class="site-container">
+          <h1>
+            PART REQUESTS
+          </h1>
+          <p>
+            Keep a local shortlist of the parts you plan to ask about.
+          </p>
+        </div>
+      </section>
+      <section class="requests-page site-container">
+        <p class="section-note">
+          Requests are saved only in this browser. Editing a request does not change your cart or favorites. Nothing is sent to the store.
+        </p>
+        <p id="requests-storage" class="section-note" hidden>
+          Browser storage is unavailable. Requests will last for this page only.
+        </p>
+        <div class="requests-layout">
+          <form id="request-form" class="cart-panel" novalidate>
+            <h2 id="request-heading">
+              Save a part request
+            </h2>
+            <div class="form-field">
+              <label for="request-product">
+                Catalog part *
+              </label>
+              <select id="request-product" class="form-select" aria-describedby="request-feedback" required>
+                <option value="">
+                  Choose a part
+                </option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="request-quantity">
+                Quantity (1–99) *
+              </label>
+              <input id="request-quantity" class="form-control" type="number" min="1" max="99" step="1" value="1" aria-describedby="request-feedback" required>
+            </div>
+            <div class="form-field">
+              <label for="request-note">
+                Note (optional, up to 200 characters)
+              </label>
+              <textarea id="request-note" class="form-control" rows="3" maxlength="200" aria-describedby="request-feedback"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="request-status">
+                Status *
+              </label>
+              <select id="request-status" class="form-select" aria-describedby="request-feedback">
+                <option value="draft">
+                  Draft
+                </option>
+                <option value="ready">
+                  Ready to ask
+                </option>
+                <option value="sent">
+                  Sent by me
+                </option>
+              </select>
+            </div>
+            <p id="request-feedback" class="field-error" role="alert">
+            </p>
+            <div class="request-actions">
+              <button id="save-request" class="btn orange-button" type="submit">
+                Save request
+              </button>
+              <button id="cancel-request" class="btn btn-outline-secondary" type="button" hidden>
+                Cancel editing
+              </button>
+            </div>
+          </form>
+          <section aria-labelledby="saved-heading">
+            <h2 id="saved-heading">
+              Saved requests
+            </h2>
+            <p class="section-note" id="request-count" role="status">
+            </p>
+            <p id="requests-empty" class="empty-state">
+              No requests saved yet. Choose a catalog part to create your first request.
+            </p>
+            <div id="request-list" class="request-list">
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="footer-columns">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-mark small" aria-hidden="true">
+              </span>
+              <span>
+                AUTOPARTS
+                <strong>
+                  STORE
+                </strong>
+              </span>
+            </div>
+            <p>
+              Automotive spare parts and accessories for drivers and mechanics.
+            </p>
+          </div>
+          <div>
+            <h2>
+              POPULAR CATEGORIES
+            </h2>
+            <ul>
+              <li>
+                <a href="categories.html#engine">
+                  Engine Parts
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#brakes">
+                  Brake Systems
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#wheels">
+                  Wheels
+                  &
+                  Tires
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#suspension">
+                  Suspension
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#electronics">
+                  Electronics
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#body">
+                  Body
+                  &
+                  Exterior
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#exhaust">
+                  Exhaust Systems
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              CUSTOMER SERVICE
+            </h2>
+            <ul>
+              <li>
+                <a href="contact.html#contact-form">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="cart.html">
+                  Order Inquiry
+                </a>
+              </li>
+              <li>
+                <a href="requests.html">
+                  Saved Part Requests
+                </a>
+              </li>
+              <li>
+                <a href="about.html">
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              SUPPORT HELPLINE
+            </h2>
+            <p>
+              <a href="tel:+77757478601">
+                +77757478601
+              </a>
+            </p>
+            <p>
+              <a href="mailto:supportautopartsstore@gmail.com">
+                supportautopartsstore@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 AutoParts Store. All rights reserved.
+          </p>
+          <div class="socials">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook">
+              <img src="assets/facebook.svg" alt="">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+              <img src="assets/instagram.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden>
+    </div>
+  </body>
+</html>
