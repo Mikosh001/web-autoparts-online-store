@@ -18,4 +18,4 @@ Exactly five substantial final additions are counted below, once each.
 Original state keys and saved-account format remain unchanged.
 New keys: `autoparts-final-recent-v1`, `autoparts-final-requests-v1`, `autoparts-final-rates-v1`, `autoparts-final-currency-v1`.
 No API response or personal test account data is bundled. API failure tests use test-only fixtures; normal UI uses the provider.
-Final remote publication is a remaining team action; the reachable endterm URL does not verify final deployment.
+Final version published and verified: https://mikosh001.github.io/web-autoparts-online-store/. All five additions passed the full live browser suite; see FINAL_CHECKS.md.

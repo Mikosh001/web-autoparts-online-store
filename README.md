@@ -21,6 +21,10 @@ HTML, CSS, Bootstrap 5.3.8, JavaScript and jQuery 3.7.1; no build step.
 Search, filters, sorting, favorites, comparison, cart quantities/undo/save-for-later,
 ENDTERM10, delivery estimates, themes, demo accounts and jQuery effects are retained.
 
+## Run and test
+
+Run with Node.js: `node tools/serve.mjs`, then open http://127.0.0.1:4173/.
+Tests: `node --test tests/store.test.cjs tests/final.test.cjs tests/structure.cjs`.
 
 ## API and local data
 
