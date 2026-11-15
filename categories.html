@@ -1,44 +1,272 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Categories | AutoParts Store</title>
-  <meta name="description" content="Search seven automotive categories and open a filtered product catalog.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="vendor/jquery-3.7.1.min.js" defer></script><script src="js/data.js" defer></script><script src="js/common.js" defer></script><script src="js/auth.js" defer></script><script src="js/cart.js" defer></script><script src="js/categories.js" defer></script><script src="js/jquery-ui.js" defer></script>
-</head>
-<body>
-  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
-  <header class="site-header">
-  <div class="site-container header-inner">
-    <a class="brand" href="index.html" aria-label="AutoParts Store home"><span class="brand-mark" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">HOME</a><a href="products.html">PRODUCTS</a><a href="categories.html" aria-current="page">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
-    <a class="account-link" id="account-link" href="login.html">Log in</a><a class="cart-label" href="cart.html"><img src="assets/cart.svg" alt=""> CART <span class="cart-count" data-cart-count>0</span></a>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button><details class="mobile-nav"><summary aria-label="Open navigation">☰</summary><nav aria-label="Mobile navigation"><a href="index.html">HOME</a><a href="products.html">PRODUCTS</a><a href="categories.html" aria-current="page">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav></details>
-  </div>
-</header>
-  <noscript><p class="site-container py-3">Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.</p></noscript>
-  <main id="main">
-<section class="title-bar"><div class="site-container"><h1>PRODUCT CATEGORIES</h1><p>The same parts catalog, easier to explore.</p></div></section>
-<section class="categories-main"><div class="site-container">
-  <div class="category-toolbar"><div><label for="category-search">Search categories</label><input id="category-search" class="form-control" type="search" placeholder="Try brakes or batteries" maxlength="100"></div><button class="btn btn-outline-secondary" id="category-reset" type="button">CLEAR SEARCH</button><p id="category-count" role="status"></p></div>
-  <div class="row g-4" id="category-grid"></div><p class="empty-state" id="category-empty" hidden>No categories match. Try another word or clear the search.</p>
-</div></section>
-</main>
-  <footer class="site-footer">
-  <div class="site-container">
-    <div class="footer-columns">
-      <div class="footer-brand"><div class="brand"><span class="brand-mark small" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></div><p>Automotive spare parts and accessories for drivers and mechanics.</p></div>
-      <div><h2>POPULAR CATEGORIES</h2><ul><li><a href="categories.html#engine">Engine Parts</a></li><li><a href="categories.html#brakes">Brake Systems</a></li><li><a href="categories.html#wheels">Wheels & Tires</a></li><li><a href="categories.html#suspension">Suspension</a></li><li><a href="categories.html#electronics">Electronics</a></li><li><a href="categories.html#body">Body & Exterior</a></li><li><a href="categories.html#exhaust">Exhaust Systems</a></li></ul></div>
-      <div><h2>CUSTOMER SERVICE</h2><ul><li><a href="contact.html#contact-form">Contact Us</a></li><li><a href="cart.html">Order Inquiry</a></li><li><a href="about.html">About Us</a></li></ul></div>
-      <div><h2>SUPPORT HELPLINE</h2><p><a href="tel:+77757478601">+77757478601</a></p><p><a href="mailto:supportautopartsstore@gmail.com">supportautopartsstore@gmail.com</a></p></div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Categories | AutoParts Store
+    </title>
+    <meta name="description" content="Search seven automotive categories and open a filtered product catalog.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vendor/jquery-3.7.1.min.js" defer>
+    </script>
+    <script src="js/product.js" defer>
+    </script>
+    <script src="js/data.js" defer>
+    </script>
+    <script src="js/common.js" defer>
+    </script>
+    <script src="js/storage.js" defer>
+    </script>
+    <script src="js/auth.js" defer>
+    </script>
+    <script src="js/cart.js" defer>
+    </script>
+    <script src="js/categories.js" defer>
+    </script>
+    <script src="js/jquery-ui.js" defer>
+    </script>
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <div class="site-container header-inner">
+        <a class="brand" href="index.html" aria-label="AutoParts Store home">
+          <span class="brand-mark" aria-hidden="true">
+          </span>
+          <span>
+            AUTOPARTS
+            <strong>
+              STORE
+            </strong>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="index.html">
+            HOME
+          </a>
+          <a href="products.html">
+            PRODUCTS
+          </a>
+          <a href="categories.html" aria-current="page">
+            CATEGORIES
+          </a>
+          <a href="about.html">
+            ABOUT
+          </a>
+          <a href="requests.html">
+            REQUESTS
+          </a>
+          <a href="contact.html">
+            CONTACT
+          </a>
+        </nav>
+        <a class="account-link" id="account-link" href="login.html">
+          Log in
+        </a>
+        <a class="cart-label" href="cart.html">
+          <img src="assets/cart.svg" alt="">
+          CART
+          <span class="cart-count" data-cart-count>
+            0
+          </span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          Dark mode
+        </button>
+        <details class="mobile-nav">
+          <summary aria-label="Open navigation">
+            ☰
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="index.html">
+              HOME
+            </a>
+            <a href="products.html">
+              PRODUCTS
+            </a>
+            <a href="categories.html" aria-current="page">
+              CATEGORIES
+            </a>
+            <a href="about.html">
+              ABOUT
+            </a>
+            <a href="requests.html">
+              REQUESTS
+            </a>
+            <a href="contact.html">
+              CONTACT
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <noscript>
+      <p class="site-container py-3">
+        Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.
+      </p>
+    </noscript>
+    <main id="main">
+      <section class="title-bar">
+        <div class="site-container">
+          <h1>
+            PRODUCT CATEGORIES
+          </h1>
+          <p>
+            The same parts catalog, easier to explore.
+          </p>
+        </div>
+      </section>
+      <section class="categories-main">
+        <div class="site-container">
+          <div class="category-toolbar">
+            <div>
+              <label for="category-search">
+                Search categories
+              </label>
+              <input id="category-search" class="form-control" type="search" placeholder="Try brakes or batteries" maxlength="100">
+            </div>
+            <button class="btn btn-outline-secondary" id="category-reset" type="button">
+              CLEAR SEARCH
+            </button>
+            <p id="category-count" role="status">
+            </p>
+          </div>
+          <div class="row g-4" id="category-grid">
+          </div>
+          <p class="empty-state" id="category-empty" hidden>
+            No categories match. Try another word or clear the search.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="footer-columns">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-mark small" aria-hidden="true">
+              </span>
+              <span>
+                AUTOPARTS
+                <strong>
+                  STORE
+                </strong>
+              </span>
+            </div>
+            <p>
+              Automotive spare parts and accessories for drivers and mechanics.
+            </p>
+          </div>
+          <div>
+            <h2>
+              POPULAR CATEGORIES
+            </h2>
+            <ul>
+              <li>
+                <a href="categories.html#engine">
+                  Engine Parts
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#brakes">
+                  Brake Systems
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#wheels">
+                  Wheels
+                  &
+                  Tires
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#suspension">
+                  Suspension
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#electronics">
+                  Electronics
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#body">
+                  Body
+                  &
+                  Exterior
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#exhaust">
+                  Exhaust Systems
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              CUSTOMER SERVICE
+            </h2>
+            <ul>
+              <li>
+                <a href="contact.html#contact-form">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="cart.html">
+                  Order Inquiry
+                </a>
+              </li>
+              <li>
+                <a href="requests.html">
+                  Saved Part Requests
+                </a>
+              </li>
+              <li>
+                <a href="about.html">
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              SUPPORT HELPLINE
+            </h2>
+            <p>
+              <a href="tel:+77757478601">
+                +77757478601
+              </a>
+            </p>
+            <p>
+              <a href="mailto:supportautopartsstore@gmail.com">
+                supportautopartsstore@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 AutoParts Store. All rights reserved.
+          </p>
+          <div class="socials">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook">
+              <img src="assets/facebook.svg" alt="">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+              <img src="assets/instagram.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden>
     </div>
-    <div class="footer-bottom"><p>© 2026 AutoParts Store. All rights reserved.</p><div class="socials"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook"><img src="assets/facebook.svg" alt=""></a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram"><img src="assets/instagram.svg" alt=""></a></div></div>
-  </div>
-</footer>
-  <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></div>
-</body>
+  </body>
 </html>

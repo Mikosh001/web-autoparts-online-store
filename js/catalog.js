@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function filterProducts(products, query, categoryId, priceRange, onlyFavorites) {
     return products.filter(product => {
-      const matchesQuery = `${product.name} ${product.sku} ${AP.categoryName(product.category)}`.toLowerCase().includes(query.trim().toLowerCase());
+      const matchesQuery = product.matches(query, AP.categoryName(product.category));
       const matchesCategory = categoryId === "all" || product.category === categoryId;
       const matchesPrice = priceRange === "all" || (priceRange === "low" && product.price < 100) || (priceRange === "mid" && product.price >= 100 && product.price <= 200) || (priceRange === "high" && product.price > 200);
       return matchesQuery && matchesCategory && matchesPrice && (!onlyFavorites || AP.state.favorites.includes(product.id));
@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = products.map(product => AP.productCard(product)).join("");
     document.getElementById("result-count").textContent = `${products.length} of ${AP.products.length} products`;
     document.getElementById("catalog-empty").hidden = products.length > 0;
-    document.getElementById("comparison-body").innerHTML = products.map(product => `<tr><th scope="row">${AP.escapeHTML(product.name)}</th><td>${AP.escapeHTML(AP.categoryName(product.category))}</td><td>${AP.money(product.price)}</td></tr>`).join("");
+    document.getElementById("comparison-body").innerHTML = products.map(product => `<tr><th scope="row">${AP.escapeHTML(product.name)}</th><td>${AP.escapeHTML(AP.categoryName(product.category))}</td><td>${AP.money(product.price)}<span class="converted-price" data-converted-cents="${product.priceInCents()}" hidden></span></td></tr>`).join("");
     document.getElementById("comparison-count").textContent = products.length ? "Matches the current catalog filters." : "No matching products to compare.";
+    document.dispatchEvent(new CustomEvent("products:render"));
   }
   form.addEventListener("submit", event => event.preventDefault());
   form.addEventListener("change", renderProducts);

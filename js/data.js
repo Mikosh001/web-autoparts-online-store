@@ -1,4 +1,4 @@
-/* Shared catalog data. Keep IDs stable because cart and favorites store them. */
+
 "use strict";
 window.AutoParts = {
   products: [
@@ -9,7 +9,7 @@ window.AutoParts = {
     { id: "tire", name: "Alloy Wheel & Tire", sku: "WHL-520", category: "wheels", price: 199, image: "tire.png", rating: 5, description: "A wheel and tire option for everyday driving. Check tire size, offset and bolt pattern." },
     { id: "mirror", name: "Side Mirror", sku: "BDY-615", category: "body", price: 89, image: "body-mirror.png", rating: 5, description: "A replacement exterior mirror. Confirm the side, connector and adjustment type before ordering." },
     { id: "muffler", name: "Stainless Steel Muffler", sku: "EXH-720", category: "exhaust", price: 229, image: "exhaust.png", rating: 5, description: "A stainless steel exhaust muffler. Ask about pipe diameter and mounting compatibility." }
-  ],
+  ].map(data => new window.Product(data)),
   categories: [
     { id: "engine", name: "Engine Parts", image: "air-filter.png", description: "Air filters and other essential engine components." },
     { id: "brakes", name: "Brake Systems", image: "brake-rotor.png", description: "Brake rotors, pads, calipers, and stopping components." },

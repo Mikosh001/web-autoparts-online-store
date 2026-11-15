@@ -234,7 +234,7 @@
   }
 }
 
-@media(max-width:991px) {
+@media(max-width:1199px) {
   .site-header {
     height:auto;
     min-height:72px;
