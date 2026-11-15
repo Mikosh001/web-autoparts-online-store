@@ -21,19 +21,6 @@ HTML, CSS, Bootstrap 5.3.8, JavaScript and jQuery 3.7.1; no build step.
 Search, filters, sorting, favorites, comparison, cart quantities/undo/save-for-later,
 ENDTERM10, delivery estimates, themes, demo accounts and jQuery effects are retained.
 
-## Run and test
-
-Use localhost or HTTPS for consistent storage and demo registration:
-
-    node tools/serve.mjs
-
-Open http://127.0.0.1:4173/ or http://127.0.0.1:4173/web-autoparts-online-store/.
-Stop the server with Ctrl+C. No dependencies are needed for these logic checks:
-
-    node --test tests/store.test.cjs tests/final.test.cjs tests/structure.cjs
-
-Optional browser checks: install Playwright separately, start the server,
-then run `node tests/browser.cjs`. Website visitors do not need Playwright.
 
 ## API and local data
 
