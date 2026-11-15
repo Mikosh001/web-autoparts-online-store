@@ -1,0 +1,47 @@
+.site-header { height:auto; min-height:80px; }
+.header-inner { height:auto; min-height:77px; padding-block:12px; }
+.header-inner > *, .requests-layout > *, .cart-layout > * { min-width:0; }
+.currency-panel { display:grid; grid-template-columns:minmax(190px,280px) minmax(0,1fr); gap:28px; align-items:center; padding-block:24px; border-bottom:1px solid var(--border); }
+.currency-panel h2 { font-size:19px; font-weight:800; margin:0 0 8px; }
+.currency-panel label { display:block; font-size:13px; margin-bottom:8px; }
+.currency-information { font-size:13px; line-height:1.6; color:var(--muted); }
+.currency-information p { margin-bottom:8px; }
+.currency-information a { display:block; color:var(--text); text-decoration:underline; margin-top:8px; }
+.currency-information button { font-size:13px; }
+.converted-price { display:block; color:var(--muted); font-size:13px; font-weight:500; margin:4px 0 12px; overflow-wrap:anywhere; }
+.recent-section { padding:40px 0 64px; }
+.recent-section h2, .requests-page h2 { font-size:24px; font-weight:800; }
+.recent-products { list-style:none; display:grid; gap:10px; margin:0; padding:0; }
+.recent-products li { display:flex; justify-content:space-between; gap:16px; background:var(--surface); padding:16px; border:1px solid var(--border); border-radius:8px; }
+.recent-products a { color:var(--text); font-weight:600; }
+.recent-products span { flex:none; }
+.requests-page { padding-block:40px 70px; }
+.requests-layout { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:32px; align-items:start; margin-top:28px; }
+.request-list { display:grid; gap:20px; }
+.request-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:24px; }
+.request-card h3 { font-size:20px; font-weight:700; }
+.request-card p { overflow-wrap:anywhere; }
+.request-note { white-space:pre-wrap; }
+.request-actions, .wizard-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+.inquiry-steps { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; padding:0; margin:24px 0 12px; font-size:12px; }
+.inquiry-steps li { padding:10px 8px; border-radius:5px; background:var(--soft); color:var(--muted); }
+.inquiry-steps [aria-current="step"] { background:var(--dark); color:#fff; box-shadow:inset 0 -3px var(--orange); font-weight:700; }
+#inquiry-progress { width:100%; height:5px; display:block; accent-color:var(--orange); }
+#inquiry-step-status { margin-top:8px; }
+[data-inquiry-step] h3 { margin:24px 0 18px; font-size:21px; font-weight:700; }
+.inquiry-review { font:13px/1.7 Geist,Arial,sans-serif; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; margin:0 0 24px; padding:16px; border:1px solid var(--border); border-radius:6px; background:var(--paper); color:var(--text); }
+.wizard-actions .btn { font-size:14px; }
+.cart-line-total > .converted-price { margin-bottom:0; }
+#converted-total { padding-bottom:12px; border-bottom:1px solid var(--border); }
+@media (max-width:767px) {
+  .currency-panel { grid-template-columns:1fr; gap:16px; }
+  .requests-layout { grid-template-columns:1fr; }
+  .recent-products li { flex-wrap:wrap; }
+}
+@media (max-width:480px) {
+  .request-card { padding:20px; }
+  .inquiry-steps { gap:4px; }
+  .inquiry-steps li { padding:8px 5px; font-size:11px; }
+  .wizard-actions .btn { flex:1; padding:12px; }
+  .requests-page h1, .requests-page h2 { overflow-wrap:anywhere; }
+}

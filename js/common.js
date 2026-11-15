@@ -12,7 +12,6 @@
       const saved = JSON.parse(localStorage.getItem(storageKey)) || {};
       const seen = new Set();
       const cart = [];
-      // Treat browser storage as untrusted: ignore removed IDs and invalid quantities.
       for (const item of Array.isArray(saved.cart) ? saved.cart : []) {
         if (item && AP.getProduct(item.id) && !seen.has(item.id) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= 99) {
           seen.add(item.id);
@@ -57,7 +56,7 @@
     return `<article class="product-card" id="product-${product.id}">
       <img class="product-image" src="assets/${product.image}" alt="${AP.escapeHTML(product.name)}" loading="lazy">
       <div class="product-meta"><span>SKU: ${product.sku}</span><span class="rating"><img src="assets/star.svg" alt="Rated"> ${product.rating.toFixed(1)} / 5</span></div>
-      <${heading}>${AP.escapeHTML(product.name)}</${heading}><p class="price">${AP.money(product.price)}</p>
+      <${heading}>${AP.escapeHTML(product.name)}</${heading}><p class="price">${AP.money(product.price)}</p><p class="converted-price" data-converted-cents="${Math.round(product.price * 100)}" hidden></p>
       <div class="card-actions"><button type="button" class="add-cart" data-add="${product.id}">ADD TO CART</button>
       <button type="button" class="favorite-button" data-favorite="${product.id}" aria-label="Favorite ${AP.escapeHTML(product.name)}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
       <button type="button" class="details-button" data-details="${product.id}" aria-expanded="false" aria-controls="details-${product.id}">Part details</button>

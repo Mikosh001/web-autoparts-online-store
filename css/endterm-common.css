@@ -1,4 +1,4 @@
-/* Shared interactive controls extend the midterm design and Bootstrap layout. */
+
 :root { --surface:#fff; --soft:#f3f4f6; --error:#b42318; --success:#157347; }
 [hidden] { display:none !important; }
 html { scroll-behavior:smooth; }
@@ -20,8 +20,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .part-details { color:var(--muted); font-size:13px; line-height:1.6; margin:0; }
 .product-card h2, .product-card h3 { white-space:normal; min-height:38px; }
 .product-card { scroll-margin-top:24px; height:auto; min-height:420px; }
-.card-actions { margin-top:auto; }
-.card-actions { display:flex; gap:8px; }
+.card-actions { display:flex; gap:8px; margin-top:auto; }
 .card-actions .add-cart { flex:1; min-width:0; border:0; font-size:12px; }
 .favorite-button { flex:none; width:42px; border:1px solid var(--border); border-radius:6px; background:var(--surface); color:var(--text); font-size:24px; }
 .favorite-button[aria-pressed="true"] { color:#b54708; border-color:var(--orange); background:#fff5e9; }
@@ -66,7 +65,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 [data-theme="dark"] .btn-outline-secondary { color:var(--text); border-color:var(--muted); }
 [data-theme="dark"] .btn-outline-secondary:hover { background:var(--soft); }
 @media (max-width:1100px) { .header-inner { gap:16px; } .desktop-nav { gap:16px; } .brand { font-size:20px; } }
-@media (max-width:991px) { .header-inner { height:auto; padding-block:12px; } .mobile-nav nav { top:100%; } }
+@media (max-width:1199px) { .header-inner { height:auto; padding-block:12px; } .mobile-nav nav { top:100%; } }
 @media (max-width:767px) { .header-inner { gap:12px; } .theme-toggle { margin-left:auto; } .cart-label { margin-left:auto; } .site-header .brand { font-size:17px; } .site-header .brand-mark { width:28px; height:28px; } .faq-section { padding:48px 0; } }
 @media (max-width:480px) { .header-inner { gap:8px; } .theme-toggle { margin-left:0; font-size:11px; padding:5px 7px; } .cart-label { font-size:0; gap:5px; padding:6px; } .cart-label img { width:17px; height:17px; } .site-header .brand { font-size:13px; gap:7px; } .faq-question { font-size:16px; } .contact-section .site-container.row { margin-inline:auto; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; animation:none !important; } }
