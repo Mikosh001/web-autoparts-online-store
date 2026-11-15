@@ -51,6 +51,6 @@ Cart and favorites are shared by guest and demo accounts in the same browser.
 ## Repository and publication
 
 Repository: https://github.com/Mikosh001/web-autoparts-online-store
-Current endterm URL: https://mikosh001.github.io/web-autoparts-online-store/
-Final publication is pending team upload and a successful GitHub Pages deployment.
+Live site: https://mikosh001.github.io/web-autoparts-online-store/
+GitHub Pages deployment and all eight pages verified on 16 November 2026.
 See [feature map](docs/REQUIREMENTS.md), [checks](docs/FINAL_CHECKS.md) and [defence notes](docs/DEFENCE_RU.md).

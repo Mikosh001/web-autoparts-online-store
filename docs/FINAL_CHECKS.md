@@ -1,6 +1,6 @@
 # Final verification record
 
-Verified locally on 16 November 2026. Baseline: 8f1b2f1f6ab8cda4d84d1cece0ac640849cda88b.
+Verified locally and on the public HTTPS site on 16 November 2026. Baseline: 8f1b2f1f6ab8cda4d84d1cece0ac640849cda88b.
 Browser: installed Chrome 157.0.8103.79 in separate disposable profiles; no real personal data used.
 
 ## Completed checks
@@ -26,11 +26,14 @@ Browser: installed Chrome 157.0.8103.79 in separate disposable profiles; no real
 - Unused CSS-only cart rules and superseded endterm publication/upload instructions were removed; vendor files/licenses retained.
 - FULL and three disjoint member archives were extracted; baseline plus patches/deletions matched every FULL file byte for byte. Reconstructed project passed the same 25 Node checks.
 - Root and /web-autoparts-online-store/ HTTP mounts returned exact file bytes for every release file; extracted HTML/CSS references were verified.
+- Production: all 73 published HTML/CSS/JS/image/font resources matched the tested checkout byte for byte.
+- The complete browser suite also passed on GitHub Pages: 15 scenario groups, 80 responsive/theme cases, live API success and no normal-flow errors.
 
 ## Confirmed findings and limits
 
 Confirmed: old VERIFICATION.md still said publication was pending although endterm was published; obsolete CSS-only cart rules had no matching elements; original PNGs were unnecessarily large. These were addressed.
 Improvement: Product/recent/API/requests/wizard extend the preserved endterm rather than counting old filters/theme/storage again.
 Not independently verified: Firefox, Safari and a physical phone. Responsive checks used desktop Chrome viewports, not real devices.
-Final remote deployment is pending explicit authorization and the team's commits/upload/merge. The current public URL remains the endterm baseline; local checks do not establish final publication.
-After deployment, repeat the feature tour on the actual HTTPS project path and the defence device/browser.
+Published: https://mikosh001.github.io/web-autoparts-online-store/
+PR #4 preserved all three participant commits and merged as 881462fed8d5b0dacb7830902571d38b220ff60f; Pages workflow 43753589215 completed successfully.
+All eight pages and final features were verified on that HTTPS project path. Before defence, open the site on the actual presentation device/browser.

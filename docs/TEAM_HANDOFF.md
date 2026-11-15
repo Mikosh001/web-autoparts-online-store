@@ -35,7 +35,7 @@ The full archive is independently runnable after extraction with index.html at i
 5. Verify that live pages contain final code, not an old cached endterm. Only then update README/FINAL_CHECKS with the confirmed final deployment status.
 6. LMS: repository https://github.com/Mikosh001/web-autoparts-online-store and the verified working Pages URL above.
 
-Current status: final code/packages verified locally; final deployment is pending. Existing endterm availability alone is insufficient.
+Current status: published and verified on 16 November 2026. PR #4 merged all three commits without squashing: Beimzhan/PactusOs (587cc8b), Meirbek/Mikosh001 (b2cea42), then Aslan/asikxz008 (697e7aa). GitHub Pages succeeded; all eight live pages passed the complete browser checks.
 
 ## Exact ownership manifest
 
