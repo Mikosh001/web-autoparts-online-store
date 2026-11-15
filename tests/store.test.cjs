@@ -1,4 +1,3 @@
-// Core state and cart tests use Node's built-in runner; UI checks are in README.
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -22,10 +21,9 @@ function createStore(savedValue = null, blocked = false) {
       setItem(key, value) { if (blocked) throw new Error("Storage denied"); stored = value; }
     }
   });
-  for (const file of ["data.js", "common.js", "cart.js"]) {
+  for (const file of ["product.js", "data.js", "common.js", "cart.js"]) {
     vm.runInContext(fs.readFileSync(path.join(__dirname, "../js", file), "utf8"), context, { filename: file });
   }
-  // Initialize the cart module without constructing a browser UI.
   listeners.DOMContentLoaded[1]();
   return {
     AP: context.window.AutoParts,

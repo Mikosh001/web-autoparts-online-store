@@ -1,63 +1,497 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Products | AutoParts Store</title>
-  <meta name="description" content="Search and filter automotive parts, save favorites and review your cart on its own page.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="vendor/jquery-3.7.1.min.js" defer></script><script src="js/data.js" defer></script><script src="js/common.js" defer></script><script src="js/auth.js" defer></script><script src="js/cart.js" defer></script><script src="js/catalog.js" defer></script><script src="js/jquery-ui.js" defer></script>
-</head>
-<body>
-  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
-  <header class="site-header">
-  <div class="site-container header-inner">
-    <a class="brand" href="index.html" aria-label="AutoParts Store home"><span class="brand-mark" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">HOME</a><a href="products.html" aria-current="page">PRODUCTS</a><a href="categories.html">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
-    <a class="account-link" id="account-link" href="login.html">Log in</a><a class="cart-label" href="cart.html"><img src="assets/cart.svg" alt=""> CART <span class="cart-count" data-cart-count>0</span></a>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button><details class="mobile-nav"><summary aria-label="Open navigation">☰</summary><nav aria-label="Mobile navigation"><a href="index.html">HOME</a><a href="products.html" aria-current="page">PRODUCTS</a><a href="categories.html">CATEGORIES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav></details>
-  </div>
-</header>
-  <noscript><p class="site-container py-3">Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.</p></noscript>
-  <main id="main">
-<section class="title-bar"><div class="site-container title-flex"><div><h1>ALL PRODUCTS</h1><p>Home / Products</p></div><p>7 parts. One place to find them.</p></div></section>
-<section class="products-main"><div class="site-container catalog container px-0">
-<aside class="filters"><form id="filter-form" aria-label="Product filters"><fieldset><legend>CATEGORIES</legend>
-<label class="filter-option"><input type="radio" name="category" value="all" checked><span>All Categories</span></label>
-<label class="filter-option"><input type="radio" name="category" value="engine" ><span>Engine Parts</span></label>
-<label class="filter-option"><input type="radio" name="category" value="brakes" ><span>Brake Systems</span></label>
-<label class="filter-option"><input type="radio" name="category" value="wheels" ><span>Wheels &amp; Tires</span></label>
-<label class="filter-option"><input type="radio" name="category" value="suspension" ><span>Suspension</span></label>
-<label class="filter-option"><input type="radio" name="category" value="electronics" ><span>Electronics</span></label>
-<label class="filter-option"><input type="radio" name="category" value="body" ><span>Body &amp; Exterior</span></label>
-<label class="filter-option"><input type="radio" name="category" value="exhaust" ><span>Exhaust Systems</span></label>
-</fieldset><hr><fieldset><legend>PRICE RANGE</legend><label class="filter-option"><input type="radio" name="price" value="all" checked><span>All Prices</span></label>
-<label class="filter-option"><input type="radio" name="price" value="low" ><span>Under $100</span></label>
-<label class="filter-option"><input type="radio" name="price" value="mid" ><span>$100–$200</span></label>
-<label class="filter-option"><input type="radio" name="price" value="high" ><span>Over $200</span></label>
-</fieldset><button class="btn btn-outline-secondary w-100 mt-3" id="reset-filters" type="button">RESET FILTERS</button></form></aside>
-<div class="catalog-content"><div class="catalog-toolbar">
-  <div><label for="product-search">Search parts</label><input id="product-search" class="form-control" type="search" placeholder="Name, category or SKU" maxlength="100"></div>
-  <div><label for="sort-products">Sort by</label><select id="sort-products" class="form-select"><option value="featured">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="name">Name: A–Z</option></select></div>
-  <label class="favorites-filter"><input type="checkbox" id="favorites-only"> Favorites (<span data-favorite-count>0</span>)</label>
-</div><p id="result-count" class="result-count" role="status"></p><div class="catalog-grid" id="product-grid"></div>
-<div class="empty-state" id="catalog-empty" hidden><h2>No parts match</h2><p>Try a different search, price range or category.</p><button class="btn btn-outline-secondary" type="button" id="empty-reset">Reset all filters</button></div>
-<p class="catalog-cart-link"><a href="cart.html">View your cart and estimated total →</a></p><section class="comparison"><h2>PRODUCT COMPARISON</h2><p class="section-note" id="comparison-count"></p><div class="table-responsive"><table class="table table-bordered"><caption>Catalog prices in USD</caption><thead><tr><th scope="col">Product</th><th scope="col">Category</th><th scope="col">Price</th></tr></thead><tbody id="comparison-body"></tbody></table></div></section>
-</div></div></section>
-</main>
-  <footer class="site-footer">
-  <div class="site-container">
-    <div class="footer-columns">
-      <div class="footer-brand"><div class="brand"><span class="brand-mark small" aria-hidden="true"></span><span>AUTOPARTS <strong>STORE</strong></span></div><p>Automotive spare parts and accessories for drivers and mechanics.</p></div>
-      <div><h2>POPULAR CATEGORIES</h2><ul><li><a href="categories.html#engine">Engine Parts</a></li><li><a href="categories.html#brakes">Brake Systems</a></li><li><a href="categories.html#wheels">Wheels & Tires</a></li><li><a href="categories.html#suspension">Suspension</a></li><li><a href="categories.html#electronics">Electronics</a></li><li><a href="categories.html#body">Body & Exterior</a></li><li><a href="categories.html#exhaust">Exhaust Systems</a></li></ul></div>
-      <div><h2>CUSTOMER SERVICE</h2><ul><li><a href="contact.html#contact-form">Contact Us</a></li><li><a href="cart.html">Order Inquiry</a></li><li><a href="about.html">About Us</a></li></ul></div>
-      <div><h2>SUPPORT HELPLINE</h2><p><a href="tel:+77757478601">+77757478601</a></p><p><a href="mailto:supportautopartsstore@gmail.com">supportautopartsstore@gmail.com</a></p></div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Products | AutoParts Store
+    </title>
+    <meta name="description" content="Search and filter automotive parts, save favorites and review your cart on its own page.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="vendor/jquery-3.7.1.min.js" defer>
+    </script>
+    <script src="js/product.js" defer>
+    </script>
+    <script src="js/data.js" defer>
+    </script>
+    <script src="js/common.js" defer>
+    </script>
+    <script src="js/storage.js" defer>
+    </script>
+    <script src="js/auth.js" defer>
+    </script>
+    <script src="js/cart.js" defer>
+    </script>
+    <script src="js/catalog.js" defer>
+    </script>
+    <script src="js/recent.js" defer>
+    </script>
+    <script src="js/rates.js" defer>
+    </script>
+    <script src="js/jquery-ui.js" defer>
+    </script>
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <div class="site-container header-inner">
+        <a class="brand" href="index.html" aria-label="AutoParts Store home">
+          <span class="brand-mark" aria-hidden="true">
+          </span>
+          <span>
+            AUTOPARTS
+            <strong>
+              STORE
+            </strong>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="index.html">
+            HOME
+          </a>
+          <a href="products.html" aria-current="page">
+            PRODUCTS
+          </a>
+          <a href="categories.html">
+            CATEGORIES
+          </a>
+          <a href="about.html">
+            ABOUT
+          </a>
+          <a href="requests.html">
+            REQUESTS
+          </a>
+          <a href="contact.html">
+            CONTACT
+          </a>
+        </nav>
+        <a class="account-link" id="account-link" href="login.html">
+          Log in
+        </a>
+        <a class="cart-label" href="cart.html">
+          <img src="assets/cart.svg" alt="">
+          CART
+          <span class="cart-count" data-cart-count>
+            0
+          </span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          Dark mode
+        </button>
+        <details class="mobile-nav">
+          <summary aria-label="Open navigation">
+            ☰
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="index.html">
+              HOME
+            </a>
+            <a href="products.html" aria-current="page">
+              PRODUCTS
+            </a>
+            <a href="categories.html">
+              CATEGORIES
+            </a>
+            <a href="about.html">
+              ABOUT
+            </a>
+            <a href="requests.html">
+              REQUESTS
+            </a>
+            <a href="contact.html">
+              CONTACT
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <noscript>
+      <p class="site-container py-3">
+        Please enable JavaScript to use the catalog, cart and inquiry forms. You can also email supportautopartsstore@gmail.com.
+      </p>
+    </noscript>
+    <main id="main">
+      <section class="title-bar">
+        <div class="site-container title-flex">
+          <div>
+            <h1>
+              ALL PRODUCTS
+            </h1>
+            <p>
+              Home / Products
+            </p>
+          </div>
+          <p>
+            7 parts. One place to find them.
+          </p>
+        </div>
+      </section>
+      <section class="currency-panel site-container" id="currency-panel" aria-labelledby="currency-heading">
+        <div>
+          <h2 id="currency-heading">
+            Price currency
+          </h2>
+          <label for="currency-choice">
+            Show approximate prices in
+          </label>
+          <select id="currency-choice" class="form-select">
+            <option value="USD">
+              USD (base prices)
+            </option>
+            <option value="KZT">
+              KZT · Kazakhstani tenge
+            </option>
+            <option value="EUR">
+              EUR · Euro
+            </option>
+          </select>
+        </div>
+        <div class="currency-information">
+          <p id="currency-status" role="status" aria-live="polite">
+          </p>
+          <button id="retry-rates" class="btn btn-outline-secondary" type="button" hidden>
+            Retry exchange rates
+          </button>
+          <a href="https://www.exchangerate-api.com">
+            Rates By Exchange Rate API
+          </a>
+        </div>
+      </section>
+      <section class="products-main">
+        <div class="site-container catalog container px-0">
+          <aside class="filters">
+            <form id="filter-form" aria-label="Product filters">
+              <fieldset>
+                <legend>
+                  CATEGORIES
+                </legend>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="all" checked>
+                  <span>
+                    All Categories
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="engine" >
+                  <span>
+                    Engine Parts
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="brakes" >
+                  <span>
+                    Brake Systems
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="wheels" >
+                  <span>
+                    Wheels
+                    &amp;
+                    Tires
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="suspension" >
+                  <span>
+                    Suspension
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="electronics" >
+                  <span>
+                    Electronics
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="body" >
+                  <span>
+                    Body
+                    &amp;
+                    Exterior
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="category" value="exhaust" >
+                  <span>
+                    Exhaust Systems
+                  </span>
+                </label>
+              </fieldset>
+              <hr>
+              <fieldset>
+                <legend>
+                  PRICE RANGE
+                </legend>
+                <label class="filter-option">
+                  <input type="radio" name="price" value="all" checked>
+                  <span>
+                    All Prices
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="price" value="low" >
+                  <span>
+                    Under $100
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="price" value="mid" >
+                  <span>
+                    $100–$200
+                  </span>
+                </label>
+                <label class="filter-option">
+                  <input type="radio" name="price" value="high" >
+                  <span>
+                    Over $200
+                  </span>
+                </label>
+              </fieldset>
+              <button class="btn btn-outline-secondary w-100 mt-3" id="reset-filters" type="button">
+                RESET FILTERS
+              </button>
+            </form>
+          </aside>
+          <div class="catalog-content">
+            <div class="catalog-toolbar">
+              <div>
+                <label for="product-search">
+                  Search parts
+                </label>
+                <input id="product-search" class="form-control" type="search" placeholder="Name, category or SKU" maxlength="100">
+              </div>
+              <div>
+                <label for="sort-products">
+                  Sort by
+                </label>
+                <select id="sort-products" class="form-select">
+                  <option value="featured">
+                    Featured
+                  </option>
+                  <option value="price-asc">
+                    Price: low to high
+                  </option>
+                  <option value="price-desc">
+                    Price: high to low
+                  </option>
+                  <option value="name">
+                    Name: A–Z
+                  </option>
+                </select>
+              </div>
+              <label class="favorites-filter">
+                <input type="checkbox" id="favorites-only">
+                Favorites (
+                <span data-favorite-count>
+                  0
+                </span>
+                )
+              </label>
+            </div>
+            <p id="result-count" class="result-count" role="status">
+            </p>
+            <div class="catalog-grid" id="product-grid">
+            </div>
+            <div class="empty-state" id="catalog-empty" hidden>
+              <h2>
+                No parts match
+              </h2>
+              <p>
+                Try a different search, price range or category.
+              </p>
+              <button class="btn btn-outline-secondary" type="button" id="empty-reset">
+                Reset all filters
+              </button>
+            </div>
+            <p class="catalog-cart-link">
+              <a href="cart.html">
+                View your cart and estimated total →
+              </a>
+            </p>
+            <section class="comparison">
+              <h2>
+                PRODUCT COMPARISON
+              </h2>
+              <p class="section-note" id="comparison-count">
+              </p>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <caption>
+                    Catalog prices in USD
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        Product
+                      </th>
+                      <th scope="col">
+                        Category
+                      </th>
+                      <th scope="col">
+                        Price
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="comparison-body">
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="recent-section">
+        <div class="site-container">
+          <div class="section-top">
+            <h2>
+              Recently viewed parts
+            </h2>
+            <button class="text-button" id="clear-recent" type="button">
+              Clear recently viewed
+            </button>
+          </div>
+          <p class="section-note">
+            Open Part details to keep up to five recent parts in this browser.
+          </p>
+          <p id="recent-empty" class="empty-state">
+            You have not viewed any part details yet.
+          </p>
+          <ul id="recent-products" class="recent-products" aria-label="Recently viewed parts">
+          </ul>
+          <p id="recent-storage" class="section-note" hidden>
+            Browser storage is unavailable. Recent views will last for this page only.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="footer-columns">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-mark small" aria-hidden="true">
+              </span>
+              <span>
+                AUTOPARTS
+                <strong>
+                  STORE
+                </strong>
+              </span>
+            </div>
+            <p>
+              Automotive spare parts and accessories for drivers and mechanics.
+            </p>
+          </div>
+          <div>
+            <h2>
+              POPULAR CATEGORIES
+            </h2>
+            <ul>
+              <li>
+                <a href="categories.html#engine">
+                  Engine Parts
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#brakes">
+                  Brake Systems
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#wheels">
+                  Wheels
+                  &
+                  Tires
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#suspension">
+                  Suspension
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#electronics">
+                  Electronics
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#body">
+                  Body
+                  &
+                  Exterior
+                </a>
+              </li>
+              <li>
+                <a href="categories.html#exhaust">
+                  Exhaust Systems
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              CUSTOMER SERVICE
+            </h2>
+            <ul>
+              <li>
+                <a href="contact.html#contact-form">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="cart.html">
+                  Order Inquiry
+                </a>
+              </li>
+              <li>
+                <a href="requests.html">
+                  Saved Part Requests
+                </a>
+              </li>
+              <li>
+                <a href="about.html">
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>
+              SUPPORT HELPLINE
+            </h2>
+            <p>
+              <a href="tel:+77757478601">
+                +77757478601
+              </a>
+            </p>
+            <p>
+              <a href="mailto:supportautopartsstore@gmail.com">
+                supportautopartsstore@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 AutoParts Store. All rights reserved.
+          </p>
+          <div class="socials">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook">
+              <img src="assets/facebook.svg" alt="">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+              <img src="assets/instagram.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden>
     </div>
-    <div class="footer-bottom"><p>© 2026 AutoParts Store. All rights reserved.</p><div class="socials"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook"><img src="assets/facebook.svg" alt=""></a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram"><img src="assets/instagram.svg" alt=""></a></div></div>
-  </div>
-</footer>
-  <div id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></div>
-</body>
+  </body>
 </html>

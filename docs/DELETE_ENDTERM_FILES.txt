@@ -1,0 +1,9 @@
+Apply the three member ZIPs at the repository root, then delete these obsolete paths:
+css/selection.css
+docs/ENDTERM_CHANGES_RU.md
+docs/UPLOAD_RU.md
+docs/VERIFICATION.md
+
+Their useful final instructions are in README.md, docs/REQUIREMENTS.md,
+docs/FINAL_CHECKS.md, docs/TEAM_HANDOFF.md and docs/DEFENCE_RU.md.
+Do not delete the complete css/ or docs/ directory.

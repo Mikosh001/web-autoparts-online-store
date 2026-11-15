@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderCategories(query = "") {
     const categories = AP.categories.filter(category => `${category.name} ${category.description}`.toLowerCase().includes(query.toLowerCase().trim()));
     grid.replaceChildren();
-    // Each matching category is a new DOM node, rather than a hard-coded card.
     for (const category of categories) {
       const column = document.createElement("div");
       column.className = "col-md-6 col-lg-4";

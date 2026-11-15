@@ -1,9 +1,8 @@
 "use strict";
 (() => {
   const AP = window.AutoParts;
-  // Integer cents keep discount and delivery calculations consistent with the display.
   AP.getCartQuote = (cart, delivery = "standard", coupon = "") => {
-    const subtotal = cart.reduce((sum, item) => sum + Math.round(AP.getProduct(item.id).price * 100) * item.quantity, 0);
+    const subtotal = cart.reduce((sum, item) => sum + AP.getProduct(item.id).priceInCents() * item.quantity, 0);
     const discount = coupon === "ENDTERM10" ? Math.round(subtotal * 0.1) : 0;
     const afterDiscount = subtotal - discount;
     const shipping = !cart.length || delivery === "pickup" ? 0 : delivery === "express" ? 3000 : afterDiscount >= 30000 ? 0 : 1500;
@@ -44,7 +43,7 @@
           <button type="button" data-adjust="${item.id}" data-step="-1" aria-label="Decrease ${AP.escapeHTML(product.name)}" ${item.quantity === 1 ? "disabled" : ""}>−</button>
           <input class="form-control" id="quantity-${item.id}" data-quantity="${item.id}" type="number" min="1" max="99" step="1" value="${item.quantity}">
           <button type="button" data-adjust="${item.id}" data-step="1" aria-label="Increase ${AP.escapeHTML(product.name)}" ${item.quantity === 99 ? "disabled" : ""}>+</button></div>
-          <strong>${AP.money(product.price * item.quantity)}</strong>
+          <div class="cart-line-total"><strong>${AP.money(product.price * item.quantity)}</strong><span class="converted-price" data-converted-cents="${product.priceInCents() * item.quantity}" hidden></span></div>
           <div class="cart-row-actions"><button type="button" class="text-button" data-save-later="${item.id}" aria-label="Save ${AP.escapeHTML(product.name)} for later">Save for later</button>
           <button type="button" class="text-button" data-remove="${item.id}" aria-label="Remove ${AP.escapeHTML(product.name)}">Remove</button></div>`;
         list.append(row);
@@ -64,6 +63,7 @@
       document.getElementById("shipping-progress").value = Math.min(30000, quote.subtotal - quote.discount);
       document.getElementById("shipping-hint").textContent = empty ? "Free standard delivery from $300 after discounts." : quote.freeShippingRemaining ? `Add ${AP.money(quote.freeShippingRemaining / 100)} after discounts for free standard delivery.` : "You qualify for free standard delivery. Select Standard to use it.";
       document.getElementById("checkout-section").hidden = empty;
+      document.getElementById("converted-total").dataset.convertedCents = quote.total;
     }
     function removeProduct(id, saveForLater = false) {
       const item = AP.state.cart.find(entry => entry.id === id);

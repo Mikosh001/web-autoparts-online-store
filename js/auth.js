@@ -56,14 +56,13 @@
     },
     async login(email, password) {
       email = normalizeEmail(email);
-      // These public credentials are for a classroom demo, not a protected account.
       if (email === demoEmail && password === "AutoParts123!") return setSession({ name: "Demo Student", email });
       const account = readAccounts().find(entry => entry.email === email);
       if (!account || await derivePassword(password, account.salt) !== account.digest) throw new Error("Email or password is incorrect.");
       return setSession(account);
     },
     logout() {
-      try { sessionStorage.removeItem(sessionKey); } catch { /* In-memory logout still works. */ }
+      try { sessionStorage.removeItem(sessionKey); } catch {  }
       currentUser = null;
       document.dispatchEvent(new CustomEvent("auth:change"));
     }

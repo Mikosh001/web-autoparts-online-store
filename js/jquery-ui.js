@@ -1,13 +1,16 @@
 "use strict";
 jQuery(function ($) {
+  const AP = window.AutoParts;
   const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 180;
-  // Delegation also handles product cards that are created again after filtering.
   $(document).on("click", "[data-details]", function () {
     const $button = $(this);
     const $panel = $button.closest(".product-card").find(".part-details");
     const open = $button.attr("aria-expanded") !== "true";
     $button.attr("aria-expanded", String(open)).text(open ? "Hide details" : "Part details");
-    if (open) $panel.stop(true, true).hide().prop("hidden", false).slideDown(duration);
+    if (open) {
+      AP.recent?.add($button.attr("data-details"));
+      $panel.stop(true, true).hide().prop("hidden", false).slideDown(duration);
+    }
     else $panel.stop(true, true).slideUp(duration, function () { $(this).prop("hidden", true); });
   });
   $("#faq").on("click", ".faq-question", function () {
